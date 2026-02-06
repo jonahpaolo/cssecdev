@@ -19,8 +19,8 @@
         "cells": [
           {
             "position": {
-              "x": 430,
-              "y": 320
+              "x": 530,
+              "y": 340
             },
             "size": {
               "width": 290,
@@ -266,6 +266,40 @@
             }
           },
           {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              ""
+            ],
+            "id": "aada493f-994f-4092-9400-6757c3bdd15e",
+            "source": {
+              "x": 430,
+              "y": 330
+            },
+            "target": {
+              "x": 790,
+              "y": 310
+            },
+            "vertices": [
+              {
+                "x": 610,
+                "y": 330
+              }
+            ]
+          },
+          {
             "shape": "flow",
             "attrs": {
               "line": {
@@ -285,7 +319,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Auth Verification",
+              "name": "User Sends User Credentials",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -299,27 +333,17 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "Auth Verification"
+              "User Sends User Credentials"
             ],
-            "id": "e95395d9-93d1-4582-b9a5-510ff28a7017",
+            "id": "e47b9e12-fe6c-4b6f-b6bc-3e7c53e26fe6",
             "source": {
-              "cell": "557d3f5a-0edf-47c9-8706-bc5756dcdf39",
-              "port": "69d8f158-a136-4acf-86af-acd9d9c184f7"
+              "x": 286,
+              "y": 405
             },
             "target": {
-              "cell": "fe1f1574-1182-413e-ab72-16ea245fb31f",
-              "port": "25dc6931-7b67-4741-976e-6b1290bbb1c3"
-            },
-            "vertices": [
-              {
-                "x": 630,
-                "y": 280
-              },
-              {
-                "x": 600,
-                "y": 250
-              }
-            ]
+              "x": 490,
+              "y": 410
+            }
           },
           {
             "shape": "flow",
@@ -363,8 +387,8 @@
               "y": 200
             },
             "target": {
-              "x": 520,
-              "y": 330
+              "x": 600,
+              "y": 390
             },
             "vertices": [
               {
@@ -467,44 +491,20 @@
                 "button-remove",
                 "vertices",
                 "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
                 "target-arrowhead"
               ],
               "name": null
             }
-          },
-          {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false,
-              "crossingFlows": [],
-              "containedElements": []
-            },
-            "labels": [
-              ""
-            ],
-            "id": "aada493f-994f-4092-9400-6757c3bdd15e",
-            "source": {
-              "x": 370,
-              "y": 290
-            },
-            "target": {
-              "x": 730,
-              "y": 270
-            },
-            "vertices": [
-              {
-                "x": 550,
-                "y": 290
-              }
-            ]
           },
           {
             "position": {
@@ -516,9 +516,12 @@
               "height": 110
             },
             "attrs": {
+              "text": {
+                "text": "Browser Client"
+              },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -610,21 +613,45 @@
             "zIndex": 11,
             "data": {
               "type": "tm.Actor",
-              "name": "Actor",
+              "name": "Browser Client",
               "description": "",
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
+              "threats": [
+                {
+                  "id": "4c3eae78-f2d2-4706-90ac-c35ff15d44c4",
+                  "title": "New STRIDE threat",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Spoofing",
+                  "description": "Provide a description for this threat",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                },
+                {
+                  "id": "2550154f-567b-4c46-bbd1-1e9b306712fc",
+                  "title": "New STRIDE threat",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "Provide a description for this threat",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                }
               ],
-              "name": null
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 1
+              }
             }
           }
         ],
@@ -633,6 +660,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 1
+    "threatTop": 3
   }
 }
