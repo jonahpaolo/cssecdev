@@ -387,7 +387,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "Verified",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -401,12 +401,12 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "Data Flow"
+              "Verified"
             ],
-            "id": "bd5bd83b-0e76-45d9-8692-f8aa3eae55ea",
+            "id": "338a9def-aad5-4feb-ab38-8ba1573df600",
             "source": {
-              "x": 740,
-              "y": 200
+              "cell": "fe1f1574-1182-413e-ab72-16ea245fb31f",
+              "port": "25dc6931-7b67-4741-976e-6b1290bbb1c3"
             },
             "target": {
               "cell": "557d3f5a-0edf-47c9-8706-bc5756dcdf39",
@@ -414,8 +414,8 @@
             },
             "vertices": [
               {
-                "x": 570,
-                "y": 260
+                "x": 550,
+                "y": 240
               }
             ]
           },
@@ -594,18 +594,38 @@
               "x": 1040,
               "y": 280
             },
-            "vertices": [
-              {
-                "x": 580,
-                "y": 290
-              },
-              {
-                "x": 960,
-                "y": 290
-              }
-            ],
             "tools": {
               "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
                 "boundary",
                 "button-remove",
                 "vertices",
@@ -813,7 +833,17 @@
                 "target-arrowhead"
               ],
               "name": null
-            }
+            },
+            "vertices": [
+              {
+                "x": 580,
+                "y": 290
+              },
+              {
+                "x": 960,
+                "y": 290
+              }
+            ]
           }
         ],
         "description": "activity"
