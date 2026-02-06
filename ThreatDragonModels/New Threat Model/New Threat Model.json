@@ -137,22 +137,35 @@
               "threats": [
                 {
                   "id": "cf9f5151-117e-498b-bf87-701cefdcd5c5",
-                  "title": "New STRIDE threat",
+                  "title": "Web Application Spoofing",
                   "status": "Open",
                   "severity": "High",
                   "type": "Spoofing",
-                  "description": "Provide a description for this threat",
+                  "description": "The web application may be spoofed by an attacker and this may lead to unauthorized access to the browser client.",
                   "mitigation": "Provide remediation for this threat or a reason if status is N/A",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 6,
                   "score": ""
+                },
+                {
+                  "id": "a2777524-ea16-45dc-ab82-e647e5708f51",
+                  "title": "Missing Web Application Logging",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Repudiation",
+                  "description": "The web application claims that it did not receive data from a process on the other side of the trust boundary.",
+                  "mitigation": "Consider using logging or auditing to record the source, time and a summary of the received data.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
+                "spoofing": 2,
                 "tampering": 0,
-                "repudiation": 0,
+                "repudiation": 1,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
@@ -460,7 +473,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -481,13 +495,45 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "f52cb145-05fa-45ca-a943-53c464adc927",
+                  "title": "Feedback Data Tampering",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Data flowing across saved feedback comments may be tampered with by an attacker. Failure to verify that input is as expected is a root cause of a very large number of exploitable issues.",
+                  "mitigation": "Consider all paths and the way they handle data. Verify that all input is verified for correctness using an approved-list input validation approach",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": ""
+                },
+                {
+                  "id": "763045f0-8d06-453e-a3e0-3a2c7ad0a674",
+                  "title": "Sensitive Feedback Data Disclosure",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Data flowing across saved feedback comments may be sniffed by an attacker. Depending on what type of data an attacker can read, it may be used to attack other parts of the system or simply be a disclosure of information leading to compliance violations.",
+                  "mitigation": "Consider encrypting the data flow.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 2,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Insert feedback comments"
@@ -503,8 +549,16 @@
             },
             "vertices": [
               {
+                "x": 390,
+                "y": 520
+              },
+              {
                 "x": 440,
                 "y": 520
+              },
+              {
+                "x": 480,
+                "y": 500
               }
             ]
           },
@@ -699,6 +753,40 @@
             ]
           },
           {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Trust Boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Trust Boundary"
+            ],
+            "id": "034105dc-095e-4b52-bffb-98c9778b0309",
+            "source": {
+              "x": 1060,
+              "y": -70
+            },
+            "target": {
+              "x": 1070,
+              "y": 270
+            },
+            "vertices": [
+              {
+                "x": 970,
+                "y": 110
+              }
+            ]
+          },
+          {
             "shape": "flow",
             "attrs": {
               "line": {
@@ -740,8 +828,8 @@
               "y": 100
             },
             "target": {
-              "cell": "1a42d714-2d43-4e62-99e7-6da4825d6f55",
-              "port": "53989f08-5c83-4b28-bac0-b22a1ff08fcc"
+              "cell": "78268328-f410-45bd-8b72-506fbe519d7c",
+              "port": "a2805a85-96f7-4261-82ec-1df6d9c26af9"
             },
             "vertices": [
               {
@@ -788,8 +876,8 @@
             ],
             "id": "0184652f-f0b3-4018-8185-182a285b5092",
             "source": {
-              "cell": "1a42d714-2d43-4e62-99e7-6da4825d6f55",
-              "port": "53989f08-5c83-4b28-bac0-b22a1ff08fcc"
+              "cell": "78268328-f410-45bd-8b72-506fbe519d7c",
+              "port": "a2805a85-96f7-4261-82ec-1df6d9c26af9"
             },
             "target": {
               "cell": "fe1f1574-1182-413e-ab72-16ea245fb31f",
@@ -799,40 +887,6 @@
               {
                 "x": 1060,
                 "y": 200
-              }
-            ]
-          },
-          {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "Trust Boundary",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false,
-              "crossingFlows": [],
-              "containedElements": []
-            },
-            "labels": [
-              "Trust Boundary"
-            ],
-            "id": "034105dc-095e-4b52-bffb-98c9778b0309",
-            "source": {
-              "x": 1060,
-              "y": -70
-            },
-            "target": {
-              "x": 1070,
-              "y": 270
-            },
-            "vertices": [
-              {
-                "x": 970,
-                "y": 110
               }
             ]
           },
@@ -1221,21 +1275,34 @@
               "threats": [
                 {
                   "id": "bb745809-f639-45c4-ba4b-cbaa19f56813",
-                  "title": "Spoofing",
+                  "title": "Malicious SQL Code Injection",
                   "status": "Open",
                   "severity": "High",
                   "type": "Tampering",
-                  "description": "Spoofing",
-                  "mitigation": "Spoofing\n",
+                  "description": "SQL injection is an attack in which malicious code is\ninserted into strings that are later passed to an instance of SQL Server for parsing and execution.",
+                  "mitigation": "",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 11,
                   "score": ""
+                },
+                {
+                  "id": "3e2ae474-a20e-4930-a48f-8800dc27cbba",
+                  "title": "Unverified SQL Database Data Writes",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Repudiation",
+                  "description": "The SQL Database claims that it did not write data received from an entity on the other side of the trust boundary",
+                  "mitigation": "Consider using logging or auditing to record the source, time and a summary of the received data.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
-                "repudiation": 0,
+                "tampering": 2,
+                "repudiation": 1,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
@@ -1243,17 +1310,14 @@
           },
           {
             "position": {
-              "x": 1275,
-              "y": 9.99999999999983
+              "x": 1310,
+              "y": -40.00000000000057
             },
             "size": {
-              "width": 310,
-              "height": 180
+              "width": 240,
+              "height": 270
             },
             "attrs": {
-              "text": {
-                "text": "LDAP\n"
-              },
               "body": {
                 "stroke": "red",
                 "strokeWidth": 2.5,
@@ -1261,7 +1325,7 @@
               }
             },
             "visible": true,
-            "shape": "actor",
+            "shape": "process",
             "ports": {
               "groups": {
                 "top": {
@@ -1328,52 +1392,92 @@
               "items": [
                 {
                   "group": "top",
-                  "id": "1a2fa3f9-fee9-42d2-aed8-72ff3655bf01"
+                  "id": "a9f4cf5a-a3e8-4de2-9aa0-f40a0df922ed"
                 },
                 {
                   "group": "right",
-                  "id": "0f587215-5e32-43c2-8b19-c22c1570b4cc"
+                  "id": "52ce367a-28de-4608-aad1-db150d67cbcd"
                 },
                 {
                   "group": "bottom",
-                  "id": "b10984bc-e88f-4ba0-afb8-7ef5768e68bc"
+                  "id": "9998ca50-942d-46dd-992e-5d31413b02c9"
                 },
                 {
                   "group": "left",
-                  "id": "53989f08-5c83-4b28-bac0-b22a1ff08fcc"
+                  "id": "a2805a85-96f7-4261-82ec-1df6d9c26af9"
                 }
               ]
             },
-            "id": "1a42d714-2d43-4e62-99e7-6da4825d6f55",
+            "id": "78268328-f410-45bd-8b72-506fbe519d7c",
             "zIndex": 16,
             "data": {
-              "type": "tm.Actor",
-              "name": "LDAP\n",
+              "type": "tm.Process",
+              "name": "Process",
               "description": "",
-              "isTrustBoundary": false,
               "outOfScope": false,
+              "isTrustBoundary": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": true,
-              "providesAuthentication": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
               "threats": [
                 {
-                  "id": "62bde6f4-e4b4-4088-9088-9bfa0c58631f",
-                  "title": "Tampering With the Data Using the SQL injection attack",
+                  "id": "fb9a1529-85c1-4183-955f-81f5b86b6d08",
+                  "title": "LDAP Injection",
                   "status": "Open",
                   "severity": "High",
-                  "type": "",
-                  "description": "No suggestions available for this context. Add one manually please",
-                  "mitigation": "",
+                  "type": "Tampering",
+                  "description": "LDAP injection is possible, as the user authentication is verified using an LDAP query.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 10,
+                  "number": 12,
+                  "score": ""
+                },
+                {
+                  "id": "9145afb3-a6d0-4155-b2d8-a0782c75995a",
+                  "title": "Missing LDAP Write Logging",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Repudiation",
+                  "description": "LDAP claims that it did not write data received from an entity on the other side of the trust boundary.",
+                  "mitigation": "Consider using logging or auditing to record the source, time and a summary of the received data.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                },
+                {
+                  "id": "b469a933-7b34-4bd4-ba89-40638d7566b8",
+                  "title": "Unauthorized Data Access in LDAP Directory",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Improper data protection of LDAP can allow an\nattacker to read information not intended for disclosure.",
+                  "mitigation": "Review authorization settings",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
                   "score": ""
                 }
               ],
               "threatFrequency": {
                 "spoofing": 0,
-                "repudiation": 0
+                "tampering": 1,
+                "repudiation": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           }
         ],
@@ -1382,6 +1486,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 11
+    "threatTop": 18
   }
 }
