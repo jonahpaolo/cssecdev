@@ -1326,6 +1326,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 16,
             "ports": {
               "groups": {
                 "top": {
@@ -1409,7 +1410,6 @@
               ]
             },
             "id": "78268328-f410-45bd-8b72-506fbe519d7c",
-            "zIndex": 16,
             "data": {
               "type": "tm.Process",
               "name": "Process",
@@ -1471,13 +1471,6 @@
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           }
         ],
