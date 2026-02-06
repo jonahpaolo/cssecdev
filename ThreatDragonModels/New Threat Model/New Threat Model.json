@@ -1016,6 +1016,11 @@
                 "button-remove",
                 "vertices",
                 "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
                 "target-arrowhead"
               ],
               "name": null
@@ -1132,6 +1137,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 15,
             "ports": {
               "groups": {
                 "top": {
@@ -1215,7 +1221,6 @@
               ]
             },
             "id": "7d298fb6-7e21-4cd9-89cd-300092defa17",
-            "zIndex": 15,
             "data": {
               "type": "tm.Store",
               "name": "Store",
